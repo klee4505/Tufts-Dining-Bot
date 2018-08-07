@@ -1,0 +1,307 @@
+<!-- This is just a test file for parsing through json--> 
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tufts Dining- Carm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="style.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <script>
+            var jsonInfo;
+            var menu;
+            var lunch;
+            var dinner;
+            var breakfast;
+
+            function initMenu() {
+                var dateObj = new Date();
+                var month = dateObj.getMonth() + 1;
+                var day = dateObj.getDate();
+                var year = dateObj.getFullYear();
+                var newDate = day + "/" + month + "/" + year;
+                var url = "https://tuftsdiningdata.herokuapp.com/menus/carm/" + newDate;
+                console.log(url);
+                
+                var sendInfo;
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', url, true);
+                xhr.setRequestHeader("Content-Type", "application/json");
+
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        jsonInfo = JSON.parse(xhr.responseText);
+                        menu = jsonInfo['data'];
+                        lunch = menu.Lunch;
+                        dinner = menu.Dinner;
+                        breakfast = menu.Breakfast;
+
+                        additem();
+
+                        // document.getElementById("breakfast").innerHTML = JSON.stringify(breakfast);
+                        // document.getElementById("lunch").innerHTML = JSON.stringify(lunch);
+                        // document.getElementById("dinner").innerHTML = JSON.stringify(dinner);
+                    }
+                };
+                xhr.send();
+            }
+
+            function additem() {
+
+                // Breakfast Menu
+
+                document.getElementById("breakfast").innerHTML += "<br><p>MORNING BELGIUM WAFFLE BAR<p/><ul><img src='https://www.cookingclassy.com/wp-content/uploads/2014/12/belgian-waffles6-edit-srgb..jpg'>";
+
+                for(var i = 0; i < breakfast["MORNING BELGIUM WAFFLE BAR"].length; i++) {
+                   var html_to_insert = "<li>" + breakfast["MORNING BELGIUM WAFFLE BAR"][i];
+                   document.getElementById("breakfast").innerHTML += html_to_insert;
+               }
+               document.getElementById("breakfast").innerHTML += "</ul>";
+
+                document.getElementById("breakfast").innerHTML += "<br><p>BREAKFAST FRUIT<p/><ul><img src='https://www.twopeasandtheirpod.com/wp-content/uploads/2016/06/Breakfast-Fruit-Pizzas-1.jpg'>";
+
+                for(var i = 0; i < breakfast["BREAKFAST FRUIT"].length; i++) {
+                   var html_to_insert = "<li>" + breakfast["BREAKFAST FRUIT"][i];
+                   document.getElementById("breakfast").innerHTML += html_to_insert;
+               }
+               document.getElementById("breakfast").innerHTML += "</ul>";
+
+                document.getElementById("breakfast").innerHTML += "<br><p>BRK BREADS,PASTRY & TOPPINGS<p/><ul><img src='https://www.justataste.com/wp-content/uploads/2016/04/fruit-cream-cheese-breakfast-pastries-recipe.jpg'>";
+
+                for(var i = 0; i < breakfast["BRK BREADS,PASTRY & TOPPINGS"].length; i++) {
+                   var html_to_insert = "<li>" + breakfast["BRK BREADS,PASTRY & TOPPINGS"][i];
+                   document.getElementById("breakfast").innerHTML += html_to_insert;
+               }
+               document.getElementById("breakfast").innerHTML += "</ul>";
+
+                document.getElementById("breakfast").innerHTML += "<br><p>HOT BREAKFAST CEREAL<p/><ul><img src='https://s-i.huffpost.com/gadgets/slideshows/207258/slide_207258_656156_free.jpg'>";
+
+                for(var i = 0; i < breakfast["HOT BREAKFAST CEREAL"].length; i++) {
+                   var html_to_insert = "<li>" + breakfast["HOT BREAKFAST CEREAL"][i];
+                   document.getElementById("breakfast").innerHTML += html_to_insert;
+               }
+               document.getElementById("breakfast").innerHTML += "</ul>";
+
+                document.getElementById("breakfast").innerHTML += "<br><p>BREAKFAST MEAT<p/><ul><img src='http://cached.dakinfarm.com/RS/SR/Product/87/019_R_165d4f3f.jpg'>";
+
+                for(var i = 0; i < breakfast["BREAKFAST MEAT"].length; i++) {
+                   var html_to_insert = "<li>" + breakfast["BREAKFAST MEAT"][i];
+                   document.getElementById("breakfast").innerHTML += html_to_insert;
+               }
+               document.getElementById("breakfast").innerHTML += "</ul>";
+
+                document.getElementById("breakfast").innerHTML += "<br><p>SALAD BAR FRUIT<p/><ul><img src='https://mydailycapture.files.wordpress.com/2011/05/18-salad-bar.jpg'>";
+
+                for(var i = 0; i < breakfast["SALAD BAR FRUIT "].length; i++) {
+                   var html_to_insert = "<li>" + breakfast["SALAD BAR FRUIT "][i];
+                   document.getElementById("breakfast").innerHTML += html_to_insert;
+               }
+               document.getElementById("breakfast").innerHTML += "</ul>";
+
+                document.getElementById("breakfast").innerHTML += "<br><p>BREAKFAST POTATO<p/><ul><img src='https://food.fnr.sndimg.com/content/dam/images/food/fullset/2017/4/19/0/WU1609H_Crispy-Bits-Potatoes_s4x3.jpg.rend.hgtvcom.616.462.suffix/1492630214544.jpeg'>";
+
+                for(var i = 0; i < breakfast["BREAKFAST POTATO"].length; i++) {
+                   var html_to_insert = "<li>" + breakfast["BREAKFAST POTATO"][i];
+                   document.getElementById("breakfast").innerHTML += html_to_insert;
+               }
+               document.getElementById("breakfast").innerHTML += "</ul>";
+
+                document.getElementById("breakfast").innerHTML += "<br><p>BREAKFAST ENTREES<p/><ul><img src='https://media-cdn.tripadvisor.com/media/photo-s/05/cc/90/a6/challah-french-toast.jpg'>";
+
+                for(var i = 0; i < breakfast["BREAKFAST ENTREES"].length; i++) {
+                   var html_to_insert = "<li>" + breakfast["BREAKFAST ENTREES"][i];
+                   document.getElementById("breakfast").innerHTML += html_to_insert;
+               }
+               document.getElementById("breakfast").innerHTML += "</ul>";
+
+
+                // Lunch Menu
+
+                document.getElementById("lunch").innerHTML += "<br><p>VEGETABLES<p/><ul><img src='https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/12_powerhouse_vegetables_slideshow/intro_cream_of_crop.jpg'>";
+
+                for(var i = 0; i < lunch["VEGETABLES"].length; i++) {
+                   var html_to_insert = "<li>" + lunch["VEGETABLES"][i];
+                   document.getElementById("lunch").innerHTML += html_to_insert;
+               }
+               document.getElementById("lunch").innerHTML += "</ul>";
+
+                document.getElementById("lunch").innerHTML += "<br><p>LATE LUNCH<p/><ul><img src='https://media-cdn.tripadvisor.com/media/photo-s/0b/24/ac/46/late-lunch.jpg'>";
+
+                for(var i = 0; i < lunch["LATE LUNCH"].length; i++) {
+                   var html_to_insert = "<li>" + lunch["LATE LUNCH"][i];
+                   document.getElementById("lunch").innerHTML += html_to_insert;
+               }
+               document.getElementById("lunch").innerHTML += "</ul>";
+
+                document.getElementById("lunch").innerHTML += "<br><p>MEXICAN BAR<p/><ul><img src='http://www.polvosaustin.com/wp-content/uploads/2017/03/Polvos-Nachos-1-1.jpg'>";
+
+                for(var i = 0; i < lunch["MEXICAN BAR"].length; i++) {
+                   var html_to_insert = "<li>" + lunch["MEXICAN BAR"][i];
+                   document.getElementById("lunch").innerHTML += html_to_insert;
+               }
+               document.getElementById("lunch").innerHTML += "</ul>";
+
+                document.getElementById("lunch").innerHTML += "<br><p>DELI & PANINI<p/><ul><img src='https://media-cdn.tripadvisor.com/media/photo-s/01/f0/ee/45/nolita-deli-panini.jpg'>";
+
+                for(var i = 0; i < lunch["DELI & PANINI"].length; i++) {
+                   var html_to_insert = "<li>" + lunch["DELI & PANINI"][i];
+                   document.getElementById("lunch").innerHTML += html_to_insert;
+               }
+               document.getElementById("lunch").innerHTML += "</ul>";
+
+                document.getElementById("lunch").innerHTML += "<br><p>PIZZA<p/><ul><img src='https://img.grouponcdn.com/deal/8DDtq5XRzVnLXEUnPHPd/p2-2048x1229/v1/c700x420.jpg'>";
+
+                for(var i = 0; i < lunch["PIZZA"].length; i++) {
+                   var html_to_insert = "<li>" + lunch["PIZZA"][i];
+                   document.getElementById("lunch").innerHTML += html_to_insert;
+               }
+               document.getElementById("lunch").innerHTML += "</ul>";
+
+
+               // Dinner Menu
+
+                document.getElementById("dinner").innerHTML += "<br><p>BREADS & ROLLS<p/><ul><img src='https://previews.123rf.com/images/monticello/monticello1201/monticello120100006/11844544-composition-with-bread-and-rolls-in-wicker-basket-isolated-on-white.jpg'>";
+
+                for(var i = 0; i < dinner["BREADS & ROLLS"].length; i++) {
+                   var html_to_insert = "<li>" + dinner["BREADS & ROLLS"][i];
+                   document.getElementById("dinner").innerHTML += html_to_insert;
+               }
+               document.getElementById("dinner").innerHTML += "</ul>";
+
+                document.getElementById("dinner").innerHTML += "<br><p>PASTA & SAUCES<p/><ul><img src='https://www.seriouseats.com/recipes/images/2016/08/20160827-cherry-tomato-pasta-13-1500x1125.jpg'>";
+
+                for(var i = 0; i < dinner["PASTA & SAUCES"].length; i++) {
+                   var html_to_insert = "<li>" + dinner["PASTA & SAUCES"][i];
+                   document.getElementById("dinner").innerHTML += html_to_insert;
+               }
+               document.getElementById("dinner").innerHTML += "</ul>";
+
+                document.getElementById("dinner").innerHTML += "<br><p>VEGETABLES<p/><ul><img src='https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/12_powerhouse_vegetables_slideshow/intro_cream_of_crop.jpg'>";
+
+                for(var i = 0; i < dinner["VEGETABLES"].length; i++) {
+                   var html_to_insert = "<li>" + dinner["VEGETABLES"][i];
+                   document.getElementById("dinner").innerHTML += html_to_insert;
+               }
+               document.getElementById("dinner").innerHTML += "</ul>";
+
+                document.getElementById("dinner").innerHTML += "<br><p>GRILL SELECTIONS<p/><ul><img src='https://toll-imageinaboxllc.netdna-ssl.com/wp-content/uploads/2011/05/Burgersonthegrill_400.jpg'>";
+
+                for(var i = 0; i < dinner["GRILL SELECTIONS"].length; i++) {
+                   var html_to_insert = "<li>" + dinner["GRILL SELECTIONS"][i];
+                   document.getElementById("dinner").innerHTML += html_to_insert;
+               }
+               document.getElementById("dinner").innerHTML += "</ul>";
+
+                document.getElementById("dinner").innerHTML += "<br><p>VEGETARIAN<p/><ul><img src='https://i1.wp.com/www.onegreenplanet.org/wp-content/uploads/2017/01/crispy-air-fryer-tofu-b.jpg?fit=1600%2C1000'>";
+
+                for(var i = 0; i < dinner["VEGETARIAN "].length; i++) {
+                   var html_to_insert = "<li>" + dinner["VEGETARIAN "][i];
+                   document.getElementById("dinner").innerHTML += html_to_insert;
+               }
+               document.getElementById("dinner").innerHTML += "</ul>";
+
+                document.getElementById("dinner").innerHTML += "<br><p>DINNER ENTREES<p/><ul><img src='http://www.mrsdash.com/sites/default/files/entree-hot.jpg'>";
+
+                for(var i = 0; i < dinner["DINNER ENTREES"].length; i++) {
+                   var html_to_insert = "<li>" + dinner["DINNER ENTREES"][i];
+                   document.getElementById("dinner").innerHTML += html_to_insert;
+               }
+               document.getElementById("dinner").innerHTML += "</ul>";
+
+              document.getElementById("dinner").innerHTML += "<br><p>BAKED FRESH DESSERTS<p/><ul><img src='data:image/jpeg;base64,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'>";
+
+                for(var i = 0; i < dinner["BAKED FRESH DESSERTS"].length; i++) {
+                   var html_to_insert = "<li>" + dinner["BAKED FRESH DESSERTS"][i];
+                   document.getElementById("dinner").innerHTML += html_to_insert;
+               }
+               document.getElementById("dinner").innerHTML += "</ul>";
+
+                document.getElementById("dinner").innerHTML += "<br><p>POTATO & RICE ACCOMPANIMENTS<p/><ul><img src='https://www.eatthis.com/content/uploads//media/images/ext/342120811/good-complex-carbs.jpg'>";
+
+                for(var i = 0; i < dinner["POTATO & RICE ACCOMPANIMENTS"].length; i++) {
+                   var html_to_insert = "<li>" + dinner["POTATO & RICE ACCOMPANIMENTS"][i];
+                   document.getElementById("dinner").innerHTML += html_to_insert;
+               }
+               document.getElementById("dinner").innerHTML += "</ul>";
+
+                document.getElementById("dinner").innerHTML += "<br><p>PIZZA<p/><ul><img src='https://img.grouponcdn.com/deal/8DDtq5XRzVnLXEUnPHPd/p2-2048x1229/v1/c700x420.jpg'>";
+
+                for(var i = 0; i < dinner["PIZZA"].length; i++) {
+                   var html_to_insert = "<li>" + dinner["PIZZA"][i];
+                   document.getElementById("dinner").innerHTML += html_to_insert;
+               }
+               document.getElementById("dinner").innerHTML += "</ul>";
+            }
+
+        </script>
+    </head>
+
+    <body onload = "initMenu()">
+
+      <!-- Navigation Bar--> 
+
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Comp 20 Final Project</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">About us</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Calorie Calculator</a></li>
+                  <li><a href="#">Nutrition Tips</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- "Jumbotron"--> 
+      <div class="jumbotron">
+        <div class="container">
+          <h1>Bon App(atite)!</h1>
+          <h2>A Web Application Built for Hungry Tufts Students
+          <h3>Carmichael Dining Hall Menu</h3>
+        </div>
+      </div>
+
+      <!-- Grid -->
+      <div class="container"> 
+        <div class="row">
+          <div class="col-md-4">
+            <h1>Breakfast</h1>
+            <div id="breakfast"></div>
+          </div>
+          <div class="col-md-4">
+            <h1>Lunch</h1>
+            <div id="lunch"></div>
+          </div>
+          <div class="col-md-4">
+            <h1>Dinner</h1>
+            <div id="dinner"></div>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+
+    </body>
+</html>
